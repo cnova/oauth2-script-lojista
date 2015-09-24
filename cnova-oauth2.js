@@ -4,11 +4,15 @@ var express = require('express'),
     app = express();
 
 var oauth2 = require('simple-oauth2')({
+	
+	// Alterar de acordo com os dados da sua APP
 	clientID: 'll0rQx9SSsgf',
 	clientSecret: '0MrkwnYXN1Ev',
+
 	site: '',
 	tokenPath: 'https://api.cnova.com/oauth/access_token',
 	authorizationPath: 'https://lojista.ehub.com.br/oauth-api/authorize'
+
 });
  
 // Definicoes de Autorizacao
@@ -24,22 +28,22 @@ app.get('/auth', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-  res.redirect('/auth');
+	res.redirect('/auth');
 });
  
 // Callback Service. Recupera o grant_code e solicita o access_token 
 app.get('/callback', function (req, res) {
-  var code = req.query.code;
-  console.log('/callback');
-  oauth2.authCode.getToken({
-    code: code,
-    redirect_uri: 'http://localhost:3000/callback'
-  }, saveToken);
+	var code = req.query.code;
+	console.log('/callback');
+	oauth2.authCode.getToken({
+		code: code,
+		redirect_uri: 'http://localhost:3000/callback'
+	}, saveToken);
  
-  function saveToken(error, result) {
-    if (error) { console.log('Access Token Error', error.message); }
-    token = oauth2.accessToken.create(result);
-  }
+	function saveToken(error, result) {
+		if (error) { console.log('Access Token Error', error.message); }
+		token = oauth2.accessToken.create(result);
+	}
 });
 
 app.listen(3000);
