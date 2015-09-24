@@ -5,7 +5,8 @@ var express = require('express'),
 
 var oauth2 = require('simple-oauth2')({
 	
-	// Alterar de acordo com os dados da sua APP
+	// Alterar as próximas duas variáveis 
+	// de acordo com os dados da sua APP
 	clientID: 'll0rQx9SSsgf',
 	clientSecret: '0MrkwnYXN1Ev',
 
