@@ -13,7 +13,7 @@ O download do NodeJS pode ser feito em: https://nodejs.org
 Em seguida, faça o download do projeto: 
 
 ```shell
-git clone https://api-developers@bitbucket.org/api-developers/oauth2-script-lojista.git
+git clone https://github.com/cnova/oauth2-script-lojista
 cd oauth2-script-lojista
 ```
 
